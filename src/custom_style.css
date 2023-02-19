@@ -1,0 +1,271 @@
+main div:has(>svg[width='41']){
+  background-image: url("chrome-extension://__MSG_@@extension_id__/chloe.gif");
+  background-size: 132%;
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  background-color: transparent !important;
+  background-position: -7px 0px;
+}
+
+main:has(button .text-2xl span) div:has(>div.w-full.group)>div:nth-last-of-type(2) div:has(>svg[width='41']){
+  background-image: url("chrome-extension://__MSG_@@extension_id__/led.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  background-color: transparent !important;
+  background-position: 0px 0px;
+}
+
+main div[class^='w-[30px]'],main div[class^='w-[30px]']:has(img) *,main div:has(>div>svg[width='41']){
+  width: 42px !important;
+  height: 42px !important;
+}
+
+div:has(>div[class^='w-[30px]'] img){
+  flex-direction: row-reverse!important;
+}
+
+div:has(>div[class^='w-[30px]'] img) div:has(>button){
+  left: -94px!important;
+  right: auto!important;
+}
+
+div:has(>div[class^='w-[30px]'] img) div.items-start{
+  align-items: end!important;
+}
+
+main svg[width='41']{
+  display: none;
+}
+
+.chloe_image_box{
+  width: 300px;
+  height: auto;
+  position: fixed;
+  top: 20%;
+  left: 260px;
+}
+
+/* @media(width >= 1920px){
+  .chloe_image_box{
+    width: 280px;
+  }
+}
+
+@media( 1920px > width>1660px){
+  .chloe_image_box{
+    width: 240px;
+  }
+}
+
+@media( 1660px >= width > 1440px){
+  .chloe_image_box{
+    width: 200px;
+  }
+} */
+
+@media( width <= 1660px){
+  .chloe_image_box{
+    display: none;
+  }
+}
+
+/* Animation keyframes - you need to add prefixes */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(360deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spinthick {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes color {
+  0% {
+    animation-timing-function: steps(1, end);
+    border: 6px solid #43d5ff;
+  }
+  40% {
+    animation-timing-function: steps(1, end);
+    border: 6px solid #eeda53;
+  }
+  80% {
+    animation-timing-function: steps(1, end);
+    border: 6px solid #ff3434;
+  }
+  100% {
+    border: 6px solid #2ed0f9;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0% {
+    animation-timing-function: steps(1, end);
+    box-shadow: 0px 0px 20px 4px #338ec2;
+  }
+  40% {
+    animation-timing-function: steps(1, end);
+    box-shadow: 0px 0px 20px 4px #bb9026;
+  }
+  80% {
+    animation-timing-function: steps(1, end);
+    box-shadow: 0px 0px 20px 4px #da2c2c;
+  }
+  100% {
+    box-shadow: 0px 0px 20px 4px #0ff;
+  }
+}
+
+@keyframes led_switch {
+  83% {
+    animation-timing-function: steps(1, end);
+    opacity: 1;
+  }
+  84% {
+    animation-timing-function: steps(1, end);
+    opacity: 1;
+  }
+  85% {
+    animation-timing-function: steps(1, end);
+    opacity: 0;
+  }
+  86.2% {
+    animation-timing-function: steps(1, end);
+    opacity: 1;
+  }
+  86.3% {
+    animation-timing-function: steps(1, end);
+    opacity: 0;
+  }
+  88% {
+    animation-timing-function: steps(1, end);
+    opacity: 1;
+  }
+  90% {
+    animation-timing-function: steps(1, end);
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+.led,.mask{
+  background-color: #cdb6b6;
+}
+
+.led {
+  width:  30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #cdb6b6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 26%;
+  left: 13%;
+  transform: rotate3d(0,1,0, 70deg);
+}
+
+.led > .loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* animation: led_switch 20s infinite linear; */
+}
+
+.loading .circle {
+  position: absolute;
+  top: 50%;
+}
+
+/* 居中 */
+.loading .circle {
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: 
+    color 20s infinite linear,
+    led_switch 20s infinite linear,
+    blink 1s infinite linear,
+    glow 20s infinite linear;
+}
+
+.loading .spinlines {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: led_switch 20s infinite linear;
+}
+
+.spinlines > .spinline {
+  height: 12%;
+  width: calc(100% - 12px);
+  position: absolute;
+  background: transparent;
+  border-radius: 10%;
+}
+
+.spinline1 {
+  box-shadow: 7px 0 4px 0 black;
+  animation: spin 12s infinite reverse;
+  opacity: 0.9;
+}
+
+.spinline2 {
+  animation: spinthick 6s infinite reverse;
+  box-shadow: 7px 0 3px 0 black;
+  opacity: 0.6;
+}
+
+.spinline3 {
+  animation: spin 5s infinite reverse;
+  animation-delay: 3s;
+  box-shadow: -7px 0 3px 0 black;
+  opacity: 0.8;
+}
+
+.mask{
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  z-index: 999;
+  border-radius: 50%;
+}
