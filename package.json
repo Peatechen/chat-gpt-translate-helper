@@ -1,5 +1,5 @@
 {
-  "name": "chat-pgt-translate-helper",
+  "name": "chat-gpt-translate-helper",
   "version": "1.0.0",
   "description": "Effortlessly translate a word or sentence with ChatGPT website",
   "main": "index.js",

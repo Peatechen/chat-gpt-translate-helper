@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
 
-  "name": "Chat Pgt Translate Helper",
+  "name": "ChatGPT Translate Helper",
   "description": "Effortlessly translate a word or sentence with ChatGPT website",
   "version": "1.0",
 
@@ -26,7 +26,7 @@
     "service_worker": "background.js"
   },
 
-  "permissions": ["webRequest", "declarativeNetRequest"],
+  "permissions": [],
 
   "web_accessible_resources": [
     {
