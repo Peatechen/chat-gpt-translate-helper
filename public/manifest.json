@@ -18,7 +18,8 @@
     {
       "matches": ["https://chat.openai.com/chat/*"],
       "js": ["vendor.js", "content_script.js"],
-      "css": ["content_script.css"]
+      "css": ["content_script.css"],
+      "run_at": "document_end"
     }
   ],
 

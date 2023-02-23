@@ -1,0 +1,26 @@
+main .group>div{
+  position:relative !important;
+}
+
+main .group .check_sentence_button{
+  position: absolute;
+  left: auto!important;
+  right: -100px !important;
+  white-space: nowrap;
+  display: none;
+}
+
+@keyframes show{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+main .group:hover .check_sentence_button{
+  display: block;
+  animation: show 0.5s 1 linear;
+}
