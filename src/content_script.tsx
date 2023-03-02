@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./custom_style.css";
 import { selectors } from "./selectors";
 import { ShowMistakesButton } from "./views/ShowMistakesButton";
+import { TranslateButton } from "./views/TranslateButton";
 
 // 向页面插入克洛伊的图片
 function insertChloeImage() {
@@ -52,7 +53,7 @@ function insertChloeImage() {
 
 /**
  * 1. 给我来点新闻
- * 2. 检查上一句的语法错误
+ * 2. 检查语句的语法错误
  * 3. 我应该如何使用英文表达这一句
  */
 
@@ -91,4 +92,67 @@ function insertCheckSentenceButton() {
   }
 }
 
-intervalRef = setInterval(insertCheckSentenceButton, 1000);
+/**
+ * 在输入框右边插入一个盒子用于排列快捷按钮
+ */
+function insertInputHelpersBox() {
+  const helpersBox = document.querySelector(
+    "form:has(textarea):not(:has(.helpers_box))"
+  );
+
+  if (!helpersBox) {
+    return;
+  }
+
+  // 新建一个元素
+  const div = document.createElement("div");
+  div.className = "helpers_box absolute";
+
+  // 将元素插入到当前句子下
+  helpersBox.appendChild(div);
+
+  // 阻止事件冒泡
+  div.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+}
+
+/**
+ * 插入快捷按钮
+ * 我应该如何用英文表述输入框里的这句话
+ */
+function insertHelperButtons() {
+  const inputForm = document.querySelector(
+    "form:has(textarea):not(:has(.translate_button))"
+  );
+
+  if (!inputForm) {
+    return;
+  }
+
+  // 插入到 helpers_box 下
+  const helpersBox = document.querySelector(selectors.HELPERS_BOX);
+
+  if (!helpersBox) {
+    return;
+  }
+
+  // 向输入框右边插入快捷按钮
+  ReactDOM.render(
+    <React.StrictMode>
+      <TranslateButton translationMode="CTE" />
+      <TranslateButton translationMode="ETC" />
+    </React.StrictMode>,
+    helpersBox
+  );
+}
+
+function insertCustomDoms() {
+  insertCheckSentenceButton();
+
+  insertInputHelpersBox();
+
+  insertHelperButtons();
+}
+
+intervalRef = setInterval(insertCustomDoms, 1000);

@@ -1,5 +1,5 @@
 import "./ShowMistakesButton.css";
-import React, { FC, MutableRefObject, useCallback, useRef } from "react";
+import React, { FC, useCallback, useRef } from "react";
 
 /**
  * 检查当前句子的错误按钮，当鼠标滑过当前句子时，展示次按钮
@@ -25,8 +25,6 @@ export const ShowMistakesButton: FC = () => {
     if (!sentence) {
       return;
     }
-
-    chrome.runtime.sendMessage(sentence.innerText);
 
     const textArea = document.querySelector("textarea");
     const submitButton = document.querySelector(

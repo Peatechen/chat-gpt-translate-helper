@@ -269,3 +269,12 @@ main svg[width='41']{
   z-index: 999;
   border-radius: 50%;
 }
+
+form:has(textarea){
+  position: relative;
+}
+
+.helpers_box{
+  right: -180px;
+  bottom: 6px;
+}
